@@ -16,8 +16,8 @@ export default ({data}) => {
 }
 
 export const query = graphql`
-	query {
-		markdownRemark {
+	query($path: String!) {
+		markdownRemark(frontmatter: {path: {eq: $path}}) {
 			html
 			frontmatter {
 				title
