@@ -4,30 +4,48 @@ import {Link, graphql} from 'gatsby'
 
 export default ({data}) => {
 	console.log(data)
+
+	const firstpost = data.firstpost.edges[0].node
+
 	return (
 		<Layout>
-			<div>
-				<h1>Amazing Pandas Eating Things</h1>
-				<h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-				{data.allMarkdownRemark.edges.map(({node}) => (
-					<div key={node.id}>
-						<Link to={node.frontmatter.path}>
-							<h3>
-								{node.frontmatter.title} <span>— {node.frontmatter.date}</span>
-							</h3>
-							<p>{node.excerpt}</p>
-						</Link>
-					</div>
-				))}
+			<div key={firstpost.id}>
+				<Link to={firstpost.frontmatter.path}>
+					<h3>{firstpost.frontmatter.title}</h3>
+				</Link>
+				<p>{firstpost.frontmatter.date}</p>
+				<div dangerouslySetInnerHTML={{__html: firstpost.html}} />
 			</div>
+
+			{data.restposts.edges.map(({node}) => (
+				<div key={node.id}>
+					<Link to={node.frontmatter.path}>
+						<h3>{node.frontmatter.title}</h3>
+					</Link>
+					<p>{node.frontmatter.date}</p>
+					<p>{node.excerpt}</p>
+				</div>
+			))}
 		</Layout>
 	)
 }
 
 export const query = graphql`
 	query {
-		allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
-			totalCount
+		firstpost: allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, limit: 1) {
+			edges {
+				node {
+					id
+					frontmatter {
+						title
+						date(formatString: "MMMM DD, YYYY")
+						path
+					}
+					html
+				}
+			}
+		}
+		restposts: allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, skip: 1) {
 			edges {
 				node {
 					id
