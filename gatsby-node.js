@@ -38,7 +38,9 @@ exports.createPages = ({graphql, actions}) => {
 				component: path.resolve('./src/templates/blog-list.js'),
 				context: {
 					limit: postsPerPage,
-					skip: i * postsPerPage
+					skip: i * postsPerPage,
+					numPages,
+					currentPage: i + 1
 				}
 			})
 		})
