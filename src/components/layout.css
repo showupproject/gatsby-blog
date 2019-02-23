@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+p,
+figure {
+	margin: 0;
+}
+
+p {
+	margin-bottom: 1em;
+	font-size: 1.2em;
+}
+body {
+	font-family: 'Nunito', sans-serif;
+	font-size: 1.5 rem;
+}
+nav {
+	background: black;
+	padding: 1em 0;
+	margin: 0;
+}
+nav ul {
+	list-style: none;
+	max-width: 650px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+}
+
+a {
+	list-style: none;
+	text-decoration: none;
+
+	text-transform: uppercase;
+}
+a:hover {
+	color: #f49b42;
+}
+nav a {
+	color: white;
+}
+h1 {
+	color: #555b6e;
+	text-align: center;
+}
+h3 {
+	color: #302b27;
+	background-color: #e4c2c6;
+}
+button {
+	background-color: #555b6e;
+	color: white;
+	padding: 0.7em 1.2em;
+	margin-bottom: 1.5rem;
+	font-size: 1.2em;
+}
+
+.card__title {
+	margin-bottom: 1.5em;
+}
+.card__date {
+	font-style: italic;
+}

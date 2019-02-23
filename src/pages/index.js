@@ -9,21 +9,24 @@ export default ({data}) => {
 
 	return (
 		<Layout>
-			<div key={firstpost.id}>
+			<div key={firstpost.id} className="card">
 				<Link to={firstpost.frontmatter.path}>
-					<h3>{firstpost.frontmatter.title}</h3>
+					<h3 className="card__title">{firstpost.frontmatter.title}</h3>
 				</Link>
-				<p>{firstpost.frontmatter.date}</p>
-				<div dangerouslySetInnerHTML={{__html: firstpost.html}} />
+				<p className="card__date">{firstpost.frontmatter.date}</p>
+				<div className="card__content" dangerouslySetInnerHTML={{__html: firstpost.html}} />
 			</div>
 
 			{data.restposts.edges.map(({node}) => (
-				<div key={node.id}>
+				<div key={node.id} className="card">
 					<Link to={node.frontmatter.path}>
-						<h3>{node.frontmatter.title}</h3>
+						<h3 className="card__title">{node.frontmatter.title}</h3>
 					</Link>
-					<p>{node.frontmatter.date}</p>
-					<p>{node.excerpt}</p>
+					<p className="card__date">{node.frontmatter.date}</p>
+					<p className="card__content">{node.excerpt}</p>
+					<Link to={node.frontmatter.path}>
+						<button>Read More</button>
+					</Link>
 				</div>
 			))}
 		</Layout>
