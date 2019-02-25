@@ -25,7 +25,7 @@ export default ({data}) => {
 					<p className="card__date">{node.frontmatter.date}</p>
 					<p className="card__content">{node.excerpt}</p>
 					<Link to={node.frontmatter.path}>
-						<button>Read More</button>
+						<p className="btn">Read More</p>
 					</Link>
 				</div>
 			))}
@@ -43,6 +43,7 @@ export const query = graphql`
 						title
 						date(formatString: "MMMM DD, YYYY")
 						path
+						tags
 					}
 					html
 				}
@@ -56,8 +57,9 @@ export const query = graphql`
 						title
 						date(formatString: "MMMM DD, YYYY")
 						path
+						tags
 					}
-					excerpt
+					excerpt(pruneLength: 350)
 				}
 			}
 		}

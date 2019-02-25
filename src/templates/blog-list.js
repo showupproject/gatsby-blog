@@ -22,6 +22,9 @@ export default class BlogList extends React.Component {
 							</Link>
 							<p>{node.frontmatter.date}</p>
 							<p>{node.excerpt}</p>
+							<Link to={node.frontmatter.path}>
+								<p className="btn">Read More</p>
+							</Link>
 						</div>
 					)
 				})}
@@ -55,8 +58,9 @@ export const blogListQuery = graphql`
 						title
 						date
 						path
+						tags
 					}
-					excerpt
+					excerpt(pruneLength: 350)
 				}
 			}
 		}

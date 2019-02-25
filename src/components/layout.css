@@ -29,7 +29,7 @@ body {
 	font-size: 1.5 rem;
 }
 nav {
-	background: black;
+	background-color: #555b6e;
 	padding: 1em 0;
 	margin: 0;
 }
@@ -61,16 +61,25 @@ h3 {
 	color: #302b27;
 	background-color: #e4c2c6;
 }
-button {
-	background-color: #555b6e;
+.btn {
+	display: inline-block;
+	text-transform: uppercase;
+	background-color: #a7a7a9;
 	color: white;
 	padding: 0.7em 1.2em;
 	margin-bottom: 1.5rem;
-	font-size: 1.2em;
+	font-size: 1.1em;
+	border-radius: .4em;
 }
-
+.btn:hover {
+	opacity: .8;
+}
+.card {
+	margin-bottom: 3em;
+}
 .card__title {
 	margin-bottom: 1.5em;
+	font-size: 1.5em;
 }
 .card__date {
 	font-style: italic;
