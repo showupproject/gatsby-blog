@@ -43,7 +43,6 @@ export const query = graphql`
 						title
 						date(formatString: "MMMM DD, YYYY")
 						path
-						tags
 					}
 					html
 				}
@@ -57,7 +56,6 @@ export const query = graphql`
 						title
 						date(formatString: "MMMM DD, YYYY")
 						path
-						tags
 					}
 					excerpt(pruneLength: 350)
 				}

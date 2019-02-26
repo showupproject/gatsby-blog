@@ -58,7 +58,6 @@ export const blogListQuery = graphql`
 						title
 						date
 						path
-						tags
 					}
 					excerpt(pruneLength: 350)
 				}

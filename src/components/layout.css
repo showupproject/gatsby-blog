@@ -30,7 +30,7 @@ body {
 }
 nav {
 	background-color: #555b6e;
-	padding: 1em 0;
+	padding: .8em 0;
 	margin: 0;
 }
 nav ul {
@@ -58,6 +58,8 @@ h1 {
 	text-align: center;
 }
 h3 {
+	display: inline-block;
+	font-weight: 900;
 	color: #302b27;
 	background-color: #e4c2c6;
 }
