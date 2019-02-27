@@ -16,12 +16,12 @@ export default class BlogList extends React.Component {
 				{posts.map(({node}) => {
 					const title = node.frontmatter.title
 					return (
-						<div key={title}>
+						<div className="card post" key={title}>
+							<p className="card__date">{node.frontmatter.date}</p>
 							<Link to={node.frontmatter.path}>
-								<h3>{node.frontmatter.title}</h3>
+								<h3 className="card__title">{node.frontmatter.title}</h3>
 							</Link>
-							<p>{node.frontmatter.date}</p>
-							<p>{node.excerpt}</p>
+							<p className="card__content">{node.excerpt}</p>
 							<Link to={node.frontmatter.path}>
 								<p className="btn">Read More</p>
 							</Link>

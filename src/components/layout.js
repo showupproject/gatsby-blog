@@ -10,7 +10,7 @@ const ListLink = props => (
 )
 
 export default ({children}) => (
-	<div>
+	<div className="body">
 		<nav>
 			<ul>
 				<ListLink to="/">Home</ListLink>
@@ -20,14 +20,24 @@ export default ({children}) => (
 				<ListLink to="/contact/">Contact</ListLink>
 			</ul>
 		</nav>
-
-		<div style={{margin: `3rem auto`, maxWidth: 750, padding: `0 1rem`}}>
-			<header style={{marginBottom: `1.5rem`}}>
-				<Link to="/" style={{textShadow: `none`, backgroundImage: `none`}}>
-					<h1 className="title">A Blog about book</h1>
-				</Link>
-			</header>
-			{children}
+		<header style={{marginBottom: `2.4rem`}}>
+			<Link to="/">
+				<h1 className="title">A Blog about book</h1>
+			</Link>
+		</header>
+		<div className="container">
+			<main>{children}</main>
+			<aside>
+				<div className="about">
+					<h4>about me</h4>
+					<p className="aside__p">I love healthy living, and everything about it. This is my corner.</p>
+				</div>
+				<div className="searchbar">
+					<h4>Search</h4>
+					<p className="aside__p" />
+				</div>
+			</aside>
 		</div>
+		<footer>&copy;Copyright 2019</footer>
 	</div>
 )
